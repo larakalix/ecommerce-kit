@@ -1,8 +1,40 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.scss";
+import type { AppContext, AppProps } from "next/app";
+import App from "next/app";
+import ThemeContext from "@/context/ThemeContext";
+import useTheme from "@/hooks/useTheme";
+import { Navbar } from "@/components/layout/nav/Navbar";
+import { __Navbar } from "src/data/nav";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const { Provider } = ThemeContext;
+
+interface Props extends AppProps {
+    data: any;
 }
 
-export default MyApp
+function MyApp({ data, Component, pageProps }: Props) {
+    const { theme, changeTheme } = useTheme();
+
+    return (
+        <Provider
+            value={{
+                theme,
+                changeTheme,
+            }}
+        >
+            <Navbar nav={data} />
+
+            <div className={`${theme} max-w-[80%] m-auto`}>
+                <Component {...pageProps} />
+            </div>
+        </Provider>
+    );
+}
+
+MyApp.getInitialProps = async (ctx: AppContext) => {
+    const appProps = await App.getInitialProps(ctx);
+
+    return { data: __Navbar, ...appProps };
+};
+
+export default MyApp;
