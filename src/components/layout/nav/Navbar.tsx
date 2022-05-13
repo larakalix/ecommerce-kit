@@ -11,6 +11,8 @@ export const Navbar = ({ nav }: Props) => {
 
     useEffect(() => {
         setMounted(true);
+
+        return () => { setMounted(false) };
     }, []);
 
     if (!mounted) return null;

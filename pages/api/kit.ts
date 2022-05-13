@@ -10,5 +10,5 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    res.status(200).json({ name: "Ecommerce Kit", date: new Date() });
+    res.status(200).json({ name: "Ecommerce Kit from Kit endpoint", date: new Date() });
 }
