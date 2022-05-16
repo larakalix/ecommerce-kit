@@ -1,17 +1,23 @@
-/* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import { NavItemProps, NavProps } from "@/schemas/nav/NavProps";
+import { NavProps } from "@/schemas/nav/NavProps";
+import { NavItems } from "../components";
+import { Cart } from "../components/Cart";
+import { Logo } from "../components/Logo";
+import { SearchBar } from "../components/SearchBar";
 
 export const CenteredLogo = ({ logo, items }: NavProps) => {
     return (
-        <div className="flex items-center">
-            <ul className="flex items-center justify-center flex-row">
-                {items.map(({ label, route, childs }: NavItemProps) => (
-                    <li key={`nav-${label.toLowerCase()}`}>
-                        <a href={label}>{label}</a>
-                    </li>
-                ))}
-            </ul>
+        <div className="grid grid-cols-3 py-14 w-full max-w-[80%] m-auto">
+            <div className="navbar group flex items-center justify-center">
+                <NavItems items={items} showCategories />
+            </div>
+
+            <div className="flex items-center justify-center">
+                <Logo src={logo} />
+            </div>
+
+            <div className="flex items-center justify-center">
+                <Cart />
+            </div>
         </div>
     );
 };

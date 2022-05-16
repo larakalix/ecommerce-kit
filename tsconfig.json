@@ -21,7 +21,8 @@
             "@/helpers/*": ["./src/helpers/*"],
             "@/factories/*": ["./src/factories/*"],
             "@/hooks/*": ["./src/hooks/*"],
-            "@/schemas/*": ["./src/schemas/*"]
+            "@/schemas/*": ["./src/schemas/*"],
+            "@/kit/*": ["./src-kit/components/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -13,9 +13,11 @@ module.exports = {
         extend: {
             colors: {
                 cms__kyblue: "#00b5ff",
-                cm__main_text: "#2a4057",
+                cm__main_text: "#1E354E",
                 cm__secondary_text: "#c3c9d1",
                 cm__tertiary_text: "#f5f5f5",
+                cm__border: "#E2E5EA",
+                cm__strong_gray: "#7F8DA0",
             },
         },
     },

@@ -4,6 +4,8 @@ import { IconType } from "react-icons";
 export enum NavType {
     DefaultNav = "DefaultNav",
     CenteredLogo = "CenteredLogo",
+    MinimalSearch = "MinimalSearch",
+    Minimal = "Minimal",
 }
 
 export interface NavItemProps {

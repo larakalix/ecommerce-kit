@@ -13,15 +13,10 @@ interface Props extends AppProps {
 }
 
 function MyApp({ data, Component, pageProps }: Props) {
-    const { theme, changeTheme } = useTheme();
+    const { theme, navType, changeTheme, changeNavType } = useTheme();
 
     return (
-        <Provider
-            value={{
-                theme,
-                changeTheme,
-            }}
-        >
+        <Provider value={{ theme, navType, changeTheme, changeNavType }}>
             <Navbar nav={data} />
 
             <div className={`${theme} max-w-[80%] m-auto`}>
